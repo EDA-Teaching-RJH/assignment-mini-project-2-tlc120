@@ -1,4 +1,3 @@
-#Regular Expressions
 import csv
 import re
 import cowsay
@@ -40,11 +39,13 @@ def main():
 
     if full == "yes":
         listss()
-        
-    cowsay.trex("Project complete!")
+        File()
 
-    
-        
+        end = input("\nDo you want complete the project? ").lower()
+
+        if end =="yes":
+            cowsay.trex("Project complete!")
+      
 def password():
     passwords = input("Please enter your 6 digits password: ").strip()
     
@@ -54,9 +55,36 @@ def password():
     else:
         print("Invalid password")
 
+def File():
+    Name = input("\nPlease enter your name again: ")
+    
+    with open("file.txt", "a") as file:
+        file.write(f"{Name}\n")
+
+    with open("file.txt", "r") as file:
+        word = file.readlines()
+        
+    for words in word:
+        print("Nice to meet you,", Name)
+
+    example = []
+    
+    with open("file.txt") as file:
+        for words in file:
+            example.append(words.rstrip())
+            
+    for examples in sorted(example):
+        print(f"File I/O is complete, {examples}!")
+
 
 if __name__ == "__main__":
     main()
+
+
+
+
+
+
 
 
 
