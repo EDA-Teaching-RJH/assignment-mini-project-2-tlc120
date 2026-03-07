@@ -1,6 +1,7 @@
 #Regular Expressions
 import csv
 import re
+import cowsay
 
 def valid_email(email):
     if re.search(r"^\w+@\w.+\.(ac.uk|gov.uk|com)$", email):
@@ -39,11 +40,13 @@ def main():
 
     if full == "yes":
         listss()
-    
+        
+    cowsay.trex("Project complete!")
+
     
         
 def password():
-    passwords = input("\nPlease enter your 6 digits password: ").strip()
+    passwords = input("Please enter your 6 digits password: ").strip()
     
     if re.search(r"^[0-9][0-9][0-9][0-9][0-9][0-9]$", passwords):
         print("Valid password")
