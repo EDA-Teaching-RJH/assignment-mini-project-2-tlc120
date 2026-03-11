@@ -10,15 +10,16 @@ class project:
         self.email = email
         self.ids = ids
 
-name = input("Enter your name: ").strip()
 
 code_a = random.randint(10000,99999)
 code_b = random.randint(10000,99999)
 
+
 def valid_email(email):
-    if re.search(r"^\w+@\w.+\.(ac.uk|com)$", email):
+    if re.search(r"^\w+@\w.+\.(ac\.uk|com)$", email):
         return True
     return False
+
 
 def listss():
     
@@ -31,24 +32,35 @@ def listss():
 
     lists.close()
 
+
+def valid_password(passwords):
+    if re.search(r"^[0-9][0-9][0-9][0-9][0-9][0-9]$", passwords):
+        return True
+    return False
+
+
 def password():
     passwords = input("Please enter your 6 digits password: ").strip()
     
-    if re.search(r"^[0-9][0-9][0-9][0-9][0-9][0-9]$", passwords):
+    if valid_password(passwords):
         print("Valid password")
 
     else:
         print("Invalid password")
 
+
 def File():
+
+    Name = input("Please enter anything in the txt file: ")
+
     with open("file.txt", "a") as file:
-        file.write(f"{name}\n")
+        file.write(f"{Name}\n")
 
     with open("file.txt", "r") as file:
         word = file.readlines()
         
     for words in word:
-        print("\nNearly finish,", name)
+        print("\nYou have entered:", Name)
 
     example = []
     
@@ -57,9 +69,11 @@ def File():
             example.append(words.rstrip())
             
     for examples in sorted(example):
-        print(f"\nThe names that stored in the txt file are , {examples}!")
+        print(f"\nThe words that stored in the txt file are , {examples}!")
+
 
 def main():
+    name = input("Enter your name: ").strip()
     password()
     email = input("Enter your email: ").strip()
     
@@ -93,6 +107,7 @@ def main():
             additions()
             return project(name, email, ids)
 
+
 def addition_decorator(add):
     def addition():
         add()
@@ -102,7 +117,6 @@ def addition_decorator(add):
 @addition_decorator
 def additions():
     print("Good job!")
-
 
 
 if __name__ == "__main__":
