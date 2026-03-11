@@ -1,9 +1,10 @@
+#Libraries
 import csv
 import re
 import random
 import cowsay
 
-
+#Object-Oriented Programming (OOP) 
 class project:
     def __init__(self, name, email, ids):
         self.name = name
@@ -14,13 +15,13 @@ class project:
 code_a = random.randint(10000,99999)
 code_b = random.randint(10000,99999)
 
-
+#Regular Expressions(1)
 def valid_email(email):
     if re.search(r"^\w+@\w.+\.(ac\.uk|com)$", email):
         return True
     return False
 
-
+#File I/O (1)
 def listss():
     
     lists = open("name1.csv", newline='')
@@ -32,7 +33,7 @@ def listss():
 
     lists.close()
 
-
+#Regular Expressions(2)
 def valid_password(passwords):
     if re.search(r"^[0-9][0-9][0-9][0-9][0-9][0-9]$", passwords):
         return True
@@ -48,7 +49,7 @@ def password():
     else:
         print("Invalid password")
 
-
+#File I/O (2)
 def File():
 
     Name = input("Please enter anything in the txt file: ")
@@ -69,9 +70,9 @@ def File():
             example.append(words.rstrip())
             
     for examples in sorted(example):
-        print(f"\nThe words that stored in the txt file are , {examples}!")
+        print(f"\nThe words that stored in the txt file are: {examples}!")
 
-
+#File I/O (3)
 def main():
     name = input("Enter your name: ").strip()
     password()
@@ -107,7 +108,7 @@ def main():
             additions()
             return project(name, email, ids)
 
-
+#Above and Beyond (Extension)
 def addition_decorator(add):
     def addition():
         add()
@@ -121,19 +122,3 @@ def additions():
 
 if __name__ == "__main__":
     main()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
